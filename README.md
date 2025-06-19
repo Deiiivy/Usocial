@@ -8,14 +8,5 @@
 
 ### Backend
 ```bash
-cd Backend
 docker-compose up --build
-```
-
-### Frontend
-
-```bash
-cd Frontend
-npm install
-npm run dev
 ```
