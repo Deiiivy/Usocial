@@ -1,10 +1,5 @@
-# Node.js
 node_modules/
-.env
 dist/
 build/
 *.log
 
-# Prisma
-.prisma/
-.env.*

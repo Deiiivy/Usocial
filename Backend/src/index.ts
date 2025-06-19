@@ -9,6 +9,7 @@ app.use(express.json());
 
 app.get('/', (_req, res) => {
   res.send('API Usocial funcionando correctamente');
+  
 });
 
 app.listen(PORT, () => {
