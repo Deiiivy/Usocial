@@ -21,23 +21,9 @@ git clone https://github.com/Deiiivy/Usocial.git
 cd Usocial
 ```
 
---------------------------------------------
-⬇️ 2. CREAR ARCHIVO .env PARA BACKEND
---------------------------------------------
-
-Entrar a la carpeta Backend y crear un txt
-
-desde vs code, en la carpeta backend crear un archivo .env
-
-
-y dentro del archivo .env creado pegar estas credenciales
-
-DATABASE_URL="postgresql://postgres:postgres@db:5432/usocial"
-JWT_SECRET="usocial-secret-key"
-
 
 --------------------------------------------
-⬇️ 3. EJECUTAR TODO CON DOCKER
+⬇️ 2. EJECUTAR TODO CON DOCKER
 --------------------------------------------
 
 estando en la raiz (en la carpeta Usocial correr el comando)
