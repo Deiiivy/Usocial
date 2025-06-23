@@ -3,7 +3,15 @@ version: "3.9"
 services:
   db:
     image: postgres:13
-   
+    restart: always
+    environment:
+      POSTGRES_USER: usocial
+      POSTGRES_PASSWORD: usocialpass
+      POSTGRES_DB: usocialdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
 
   backend:
     build:
@@ -19,7 +27,15 @@ services:
       - ./Backend/.env
     depends_on:
       - db
-    command: npm run dev
+    command: >
+      sh -c "
+        until nc -z db 5432; do
+          echo 'Esperando a que la DB esté lista...';
+          sleep 2;
+        done &&
+        npx prisma migrate deploy &&
+        npm run dev
+      "
 
   frontend:
     build:
@@ -32,3 +48,6 @@ services:
       - /app/node_modules
     working_dir: /app
     command: npm run dev
+
+volumes:
+  pgdata:
