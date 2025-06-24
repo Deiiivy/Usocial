@@ -34,3 +34,6 @@ docker-compose up --build
 
 cuando este listo se podra ver el Frontend en: http://localhost:5173/
 y el backend estara corriendo en el puerto: http://localhost:3000/
+
+
+![imagen](https://github.com/user-attachments/assets/e22b3a7f-abc8-4fcd-90ce-2aa3458b51b6)
