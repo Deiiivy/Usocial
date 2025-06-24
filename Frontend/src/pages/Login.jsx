@@ -46,7 +46,7 @@ const Login = () => {
 
       const data = await response.json()
       localStorage.setItem('token', data.token)
-      navigate('/')
+      navigate('/Main')
     } catch (error) {
       console.error('Error:', error)
     }

@@ -1,16 +1,14 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
-import { useEffect, useRef } from 'react'
-import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import logo from '../assets/Usocial_logo.png'
-import { Navigate, useNavigate } from 'react-router-dom'
 
 const Register = () => {
     const titleRef = useRef(null);
     const subtitleRef = useRef(null);
     const logoRef = useRef(null);
     const [isLoading, setIsLoading] = useState(true);
-      const navigate = useNavigate()
+    const navigate = useNavigate()
     
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -65,10 +63,11 @@ const Register = () => {
             console.log("Usuario registrado exitosamente:", data);
             navigate('/login'); 
 
-            name = '';
-            email = '';
-            password = '';
-            confirmPassword = '';   
+        setName('');
+        setEmail('');
+        setPassword('');
+        setConfirmPassword('');
+  
         }catch (error) {
             console.error("Error al registrar:", error);
         }
