@@ -37,43 +37,43 @@ const Header = () => {
 
       <nav className="hidden md:flex space-x-4 items-center">
         <IoHomeOutline />
-        <a href="/main" className="hover:text-blue-500">Inicio</a>
+        <a href="/main" className="text-lg max-md:text-xs hover:text-blue-500">Inicio</a>
         <FaRegUser />
-        <a href="/profile" className="hover:text-blue-500">Perfil</a>
+        <a href="/profile" className="text-lg max-md:text-xs hover:text-blue-500">Perfil</a>
         <IoMdPeople />
-        <a href="/groups" className="hover:text-blue-500">Grupos</a>
+        <a href="/groups" className="text-lg max-md:text-xs hover:text-blue-500">Grupos</a>
         <IoMdAddCircleOutline />
-        <a href="/createPost" className="hover:text-blue-500">Crear Post</a>
+        <a href="/createPost" className="text-lg max-md:text-xs hover:text-blue-500">Crear Post</a>
         <IoMdChatbubbles />
-        <a href="/messages" className="hover:text-blue-500">Mensajes</a>
+        <a href="/messages" className="text-lg max-md:text-xs hover:text-blue-500">Mensajes</a>
         <CiSettings />
-        <a href="/settings" className="hover:text-blue-500">Configuración</a>
+        <a href="/settings" className="text-lg max-md:text-xs hover:text-blue-500">Configuración</a>
         <IoIosLogOut />
-        <a href="/logout" className="hover:dockertext-blue-500" onClick={() => localStorage.removeItem('token')}>Cerrar sesión</a>
+        <a href="/logout" className="text-lg max-md:text-xs hover:text-blue-500" onClick={() => localStorage.removeItem('token')}>Cerrar sesión</a>
       </nav>
 
       <div 
-        className={`
+        className={` flex flex-col items-center 
           md:hidden absolute right-4 top-12 bg-gray-800 rounded-lg shadow-lg p-2 
           ${isMenuOpen ? 'block' : 'hidden'}
         `}
       >
         <IoHomeOutline />
-        <a href="/main" className="block px-4 py-2 hover:bg-gray-700">Inicio</a>
+        <a href="/main" className="block px-4 py-2 hover:bg-gray-700 text-lg max-md:text-xs">Inicio</a>
         <FaRegUser />
-        <a href="/profile" className="block px-4 py-2 hover:bg-gray-700">Perfil</a>
+        <a href="/profile" className="block px-4 py-2 hover:bg-gray-700 text-lg max-md:text-xs">Perfil</a>
         <IoMdPeople />
-        <a href="/groups" className="block px-4 py-2 hover:bg-gray-700">Grupos</a>
+        <a href="/groups" className="block px-4 py-2 hover:bg-gray-700 text-lg max-md:text-xs">Grupos</a>
         <IoMdAddCircleOutline />
-        <a href="/createPost" className="block px-4 py-2 hover:bg-gray-700">Crear Post</a>
+        <a href="/createPost" className="block px-4 py-2 hover:bg-gray-700 text-lg max-md:text-xs">Crear Post</a>
         <IoMdChatbubbles />
-        <a href="/messages" className="block px-4 py-2 hover:bg-gray-700">Mensajes</a>
+        <a href="/messages" className="block px-4 py-2 hover:bg-gray-700 text-lg max-md:text-xs">Mensajes</a>
         <CiSettings />
-        <a href="/settings" className="block px-4 py-2 hover:bg-gray-700">Configuración</a>
+        <a href="/settings" className="block px-4 py-2 hover:bg-gray-700 text-lg max-md:text-xs">Configuración</a>
         <IoIosLogOut />
         <a 
           href="/logout" 
-          className="block px-4 py-2 hover:bg-gray-700" 
+          className="block px-4 py-2 hover:bg-gray-700 text-lg max-md:text-xs" 
           onClick={() => localStorage.removeItem('token')}
         >
           Cerrar sesión
