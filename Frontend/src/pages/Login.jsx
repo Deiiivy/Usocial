@@ -45,7 +45,10 @@ const Login = () => {
       }
 
       const data = await response.json()
-      localStorage.setItem('token', data.token)
+      localStorage.setItem('user', JSON.stringify({
+        id: data.user.id,  
+        token: data.token
+      }));
       navigate('/Main')
     } catch (error) {
       console.error('Error:', error)

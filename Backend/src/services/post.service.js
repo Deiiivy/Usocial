@@ -1,12 +1,17 @@
 import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
+
 const createPost = async (post) => {
   return await prisma.posts.create({ data: post });
 };
 
 const getPostById = async (id) => {
   return await prisma.posts.findUnique({ where: { id } });
+};
+
+const getPostsByUserId = async (userId) => {
+  return await prisma.posts.findMany({ where: { userId } });
 };
 
 const getAllPosts = async () => {
@@ -26,5 +31,6 @@ export default {
   getPostById,
   getAllPosts,
   updatePost,
-  deletePost
+  deletePost,
+  getPostsByUserId
 };
