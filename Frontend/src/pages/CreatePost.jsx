@@ -50,91 +50,100 @@ const CreatePost = () => {
   };
 
   return (
-    <div className="h-screen flex flex-col mt-8 mb-8">
-      <Header />
-      <Aside />
-      <main className="ml-64 flex-1 overflow-y-auto p-6 bg-gray-100 mt-16">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-3xl font-bold mb-8 text-center">Crear Post</h1>
-          <form 
-            onSubmit={handleSubmit} 
-            className="bg-white rounded-lg shadow-xl p-8 space-y-6"
-            encType="multipart/form-data"
-          >
-            <div className="space-y-2">
-              <label className="block text-sm font-medium text-gray-700">Título</label>
-              <input
-                type="text"
-                placeholder="Escribe un título atractivo"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                required
-              />
-            </div>
+<div className="h-screen flex flex-col">
+  <Header />
+  <div className="flex flex-1 pt-16">
+    <Aside />
+    <main 
+      className={`
+        flex-1 overflow-y-auto p-6 bg-gray-100 
+        ml-0 md:ml-64 
+        mb-12 md:mb-0
+      `}
+    >
+      <div className="max-w-4xl mx-auto">
+        <h1 className="text-3xl font-bold mb-8 text-center">Crear Post</h1>
+        <form 
+          onSubmit={handleSubmit} 
+          className="bg-white rounded-lg shadow-xl p-8 space-y-6"
+          encType="multipart/form-data"
+        >
+          <div className="space-y-2">
+            <label className="block text-sm font-medium text-gray-700">Título</label>
+            <input
+              type="text"
+              placeholder="Escribe un título atractivo"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              required
+            />
+          </div>
 
-            <div className="space-y-2">
-              <label className="block text-sm font-medium text-gray-700">Contenido</label>
-              <textarea
-                placeholder="Escribe el contenido de tu post"
-                value={content}
-                onChange={(e) => setContent(e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none min-h-[150px]"
-                required
-              />
-            </div>
+          <div className="space-y-2">
+            <label className="block text-sm font-medium text-gray-700">Contenido</label>
+            <textarea
+              placeholder="Escribe el contenido de tu post"
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none min-h-[150px]"
+              required
+            />
+          </div>
 
-            <div className="space-y-2">
-              <label className="block text-sm font-medium text-gray-700 mb-5">Imagen (opcional)</label>
-              <div className="flex items-center gap-4">
-                <div className="flex-1">
-                  <input
-                    type="file"
-                    onChange={handleImageChange}
-                    className="hidden"
-                    accept="image/*"
-                    id="imageInput"
-                  />
-                  <label 
-                    htmlFor="imageInput" 
-                    className="w-full px-6 py-4 border border-blue-700 rounded-xl cursor-pointer hover:bg-blue-800 transition-colors bg-gray-800 text-white"
-                  >
-                    {image ? 'Cambiar imagen' : 'Seleccionar imagen'}
-                  </label>
-                </div>
-                {image && (
-                  <div className="relative w-48 h-48">
-                    <button
-                      onClick={(e) => {
-                        e.preventDefault();
-                        setImage(null);
-                      }}
-                      className="absolute top-0 right-0 p-2 bg-red-500 text-white rounded-full hover:bg-red-600"
-                    >
-                      ×
-                    </button>
-                    <img
-                      src={URL.createObjectURL(image)}
-                      alt="Vista previa"
-                      className="w-full h-full rounded-xl object-cover"
-                    />
-                  </div>
-                )}
+          <div className="space-y-2">
+            <label className="block text-sm font-medium text-gray-700 mb-5">Imagen (opcional)</label>
+            <div className="flex items-center gap-4 flex-wrap">
+              <div className="flex-1">
+                <input
+                  type="file"
+                  onChange={handleImageChange}
+                  className="hidden"
+                  accept="image/*"
+                  id="imageInput"
+                />
+                <label 
+                  htmlFor="imageInput" 
+                  className="w-full px-6 py-4 border border-blue-700 rounded-xl cursor-pointer hover:bg-blue-800 transition-colors bg-gray-800 text-white text-center"
+                >
+                  {image ? 'Cambiar imagen' : 'Seleccionar imagen'}
+                </label>
               </div>
+              {image && (
+                <div className="relative w-48 h-48">
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setImage(null);
+                    }}
+                    className="absolute top-0 right-0 p-2 bg-red-500 text-white rounded-full hover:bg-red-600"
+                  >
+                    ×
+                  </button>
+                  <img
+                    src={URL.createObjectURL(image)}
+                    alt="Vista previa"
+                    className="w-full h-full rounded-xl object-cover"
+                  />
+                </div>
+              )}
             </div>
+          </div>
 
-            <div className="flex justify-end">
-              <button
-                type="submit"
-                className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-              >
-                Crear Post
-              </button>
-            </div>
-          </form>
-        </div>
-      </main>
-    </div>
+          <div className="flex justify-end">
+            <button
+              type="submit"
+              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            >
+              Crear Post
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+</div>
+
   );
 };
 
