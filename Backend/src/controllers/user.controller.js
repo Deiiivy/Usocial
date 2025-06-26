@@ -1,6 +1,7 @@
-import { log } from 'console';
 import userService from '../services/user.service.js';
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+const secretKey = process.env.JWT_SECRET_KEY;
 
 export const getUsers = async (req, res, next) => {
   try {
@@ -34,13 +35,14 @@ export const loginUSer = async(req, res, next) => {
     }
 
     const isPasswordValid = await bcrypt.compare(password, user.password);
+    const token = jwt.sign({ userId: user.id }, secretKey, { expiresIn: '1h' });
     console.log(password, user.password);
     
     if (!isPasswordValid) {
       return res.status(401).json({ message: 'Contraseña incorrecta' });
     }
 
-    res.json({ message: 'Inicio de sesión exitoso', user });
+    res.json({ message: 'Inicio de sesión exitoso', user, token });
   }catch(error) {
     next(error);
   }

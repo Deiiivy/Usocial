@@ -19,7 +19,6 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./Backend:/app
-      - /app/node_modules
     working_dir: /app
     ports:
       - "3000:3000"
