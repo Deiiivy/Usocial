@@ -1,5 +1,12 @@
 import React, { useState } from 'react'
 import logo from '../assets/Usocial_logo.png';
+import { FaRegUser } from "react-icons/fa";
+import { IoHomeOutline } from "react-icons/io5";
+import { IoMdPeople } from "react-icons/io";
+import { IoMdChatbubbles } from "react-icons/io";
+import { IoMdAddCircleOutline } from "react-icons/io";
+import { CiSettings } from "react-icons/ci";
+import { IoIosLogOut } from "react-icons/io";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -28,14 +35,21 @@ const Header = () => {
         </svg>
       </button>
 
-      <nav className="hidden md:flex space-x-4">
+      <nav className="hidden md:flex space-x-4 items-center">
+        <IoHomeOutline />
         <a href="/main" className="hover:text-blue-500">Inicio</a>
+        <FaRegUser />
         <a href="/profile" className="hover:text-blue-500">Perfil</a>
+        <IoMdPeople />
         <a href="/groups" className="hover:text-blue-500">Grupos</a>
+        <IoMdAddCircleOutline />
         <a href="/createPost" className="hover:text-blue-500">Crear Post</a>
+        <IoMdChatbubbles />
         <a href="/messages" className="hover:text-blue-500">Mensajes</a>
+        <CiSettings />
         <a href="/settings" className="hover:text-blue-500">Configuración</a>
-        <a href="/logout" className="hover:text-blue-500" onClick={() => localStorage.removeItem('token')}>Cerrar sesión</a>
+        <IoIosLogOut />
+        <a href="/logout" className="hover:dockertext-blue-500" onClick={() => localStorage.removeItem('token')}>Cerrar sesión</a>
       </nav>
 
       <div 
@@ -44,12 +58,19 @@ const Header = () => {
           ${isMenuOpen ? 'block' : 'hidden'}
         `}
       >
+        <IoHomeOutline />
         <a href="/main" className="block px-4 py-2 hover:bg-gray-700">Inicio</a>
+        <FaRegUser />
         <a href="/profile" className="block px-4 py-2 hover:bg-gray-700">Perfil</a>
+        <IoMdPeople />
         <a href="/groups" className="block px-4 py-2 hover:bg-gray-700">Grupos</a>
+        <IoMdAddCircleOutline />
         <a href="/createPost" className="block px-4 py-2 hover:bg-gray-700">Crear Post</a>
+        <IoMdChatbubbles />
         <a href="/messages" className="block px-4 py-2 hover:bg-gray-700">Mensajes</a>
+        <CiSettings />
         <a href="/settings" className="block px-4 py-2 hover:bg-gray-700">Configuración</a>
+        <IoIosLogOut />
         <a 
           href="/logout" 
           className="block px-4 py-2 hover:bg-gray-700" 
