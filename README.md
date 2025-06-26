@@ -42,6 +42,7 @@ Interfaz Main Desktop
 ![imagen](https://github.com/user-attachments/assets/b8e29840-8354-4c6c-9a4e-a49eb33ed5a4)
 
 Phone
+
 ![imagen](https://github.com/user-attachments/assets/194689ae-c6bd-4074-a803-7d1087d9def2)
 
 
