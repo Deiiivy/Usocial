@@ -37,9 +37,14 @@ y el backend estara corriendo en el puerto: http://localhost:3000/
 
 ![imagen](https://github.com/user-attachments/assets/e22b3a7f-abc8-4fcd-90ce-2aa3458b51b6)
 
-Interfaz Main
+Interfaz Main Desktop
 
-![imagen](https://github.com/user-attachments/assets/dfc8859d-60bc-4a98-b497-26ee0eff63cf)
+![imagen](https://github.com/user-attachments/assets/b8e29840-8354-4c6c-9a4e-a49eb33ed5a4)
+
+Phone
+![imagen](https://github.com/user-attachments/assets/194689ae-c6bd-4074-a803-7d1087d9def2)
+
+
 
 
 
