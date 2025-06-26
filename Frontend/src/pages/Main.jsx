@@ -1,49 +1,68 @@
-import React from 'react'
-import { useEffect } from 'react'
-import { useRef } from 'react'
-import logo from '../assets/Usocial_logo.png'
-import { useState } from 'react'
-
+import React, { useEffect, useRef, useState } from 'react';
+import Header from '../components/Header';
+import Aside from '../components/Aside';
 
 const Main = () => {
-    const titleRef = useRef(null)
-    const subtitleRef = useRef(null)
-    const logoRef = useRef(null)
+  const titleRef = useRef(null);
+  const token = localStorage.getItem('token');
+  const [posts, setPosts] = useState([]);
 
-    
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await fetch('http://localhost:3000/posts/GetAllPosts', {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+        if (!response.ok) throw new Error('Error al obtener los posts');
+        const data = await response.json();
+        setPosts(data);
+        console.log(data);
+      } catch (error) {
+        console.error('Error al obtener los posts:', error);
+      }
+    };
+    fetchPosts();
+  }, []);
+
   return (
-    <div>
-        <header className="bg-gray-900 text-white p-4 flex justify-between items-center">
-            <img src={logo}  alt="Usocial Logo" className="w-12 h-12" />
-            <nav className="space-x-4">
-                <a href="/main" className="hover:text-blue-500">Inicio</a>
-                <a href="/profile" className="hover:text-blue-500">Perfil</a>
-                <a href="/groups" className="hover:text-blue-500">Grupos</a>
-                <a href="/messages" className="hover:text-blue-500">Mensajes</a>
-                <a href="/settings" className="hover:text-blue-500">Configuración</a>
-                <a href="/logout" className="hover:text-blue-500">Cerrar sesión</a>
-            </nav>
-        </header>
+    <div className="h-screen flex flex-col">
+     <Header />
 
+      <div className="flex flex-1 pt-16"> 
+        <Aside />
 
-        <section className="flex flex-col md:flex-row bg-gray-100 min-h-screen">
-            <aside className="w-full md:w-1/4 p-4 shadow-md bg-white">
-                <h2 className="text-xl font-bold mb-4">Menú</h2>
-                <ul className="space-y-2">
-                    <li><a href="/profile" className="text-gray-700 hover:text-blue-500">Perfil</a></li>
-                    <li><a href="/groups" className="text-gray-700 hover:text-blue-500">Grupos</a></li>
-                    <li><a href="/messages" className="text-gray-700 hover:text-blue-500">Mensajes</a></li>
-                    <li><a href="/settings" className="text-gray-700 hover:text-blue-500">Configuración</a></li>
-                    <li><a href="/logout" className="text-gray-700 hover:text-blue-500">Cerrar sesión</a></li>
-                </ul>
-            </aside>
-        </section>
-
-        <main className="flex-1 p-6 bg-gray-100">
-            <h1 className="text-3xl font-bold mb-4" ref={titleRef}>Bienvenido a Usocial</h1>
+        <main className="ml-64 flex-1 overflow-y-auto p-6 bg-gray-100">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+             
+              <ul>
+                {posts.map(post => (
+                  <li key={post.id} className="bg-white p-4 rounded-lg shadow-md mb-4">
+                  <h2 className="text-xl font-semibold mb-2">{post.title}</h2>
+                  <p className="text-gray-700">{post.content}</p>
+                  <p className="text-gray-500">Creado por: {post.user?.name || 'Usuario desconocido'}</p>
+                  {post.image && (
+                    <img
+                      className="w-full h-auto max-w-80"
+                      src={`http://localhost:3000/${post.image}`}
+                      alt="Post"
+                    />
+                  )}
+                  <p>{new Date(post.createdAt).toLocaleString()}</p>
+                </li>                
+                ))}
+              </ul>
+            </div>
+            <section>
+              <h1></h1>
+            </section>
+          </div>
         </main>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Main
+export default Main;
