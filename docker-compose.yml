@@ -32,8 +32,10 @@ services:
           sleep 2;
         done &&
         npx prisma migrate deploy &&
+        npx prisma generate &&
         npm run dev
       "
+
 
   frontend:
     build:
