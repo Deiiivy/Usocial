@@ -7,6 +7,8 @@ import { IoMdChatbubbles } from "react-icons/io";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { CiSettings } from "react-icons/ci";
 import { IoIosLogOut } from "react-icons/io";
+import { IoPeople } from "react-icons/io5";
+import { MdGroups } from "react-icons/md";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -40,8 +42,10 @@ const Header = () => {
         <a href="/main" className="text-lg max-md:text-xs hover:text-blue-500">Inicio</a>
         <FaRegUser />
         <a href="/profile" className="text-lg max-md:text-xs hover:text-blue-500">Perfil</a>
-        <IoMdPeople />
+        <MdGroups />
         <a href="/groups" className="text-lg max-md:text-xs hover:text-blue-500">Grupos</a>
+        <IoPeople />
+        <a href="/people" className="text-lg max-md:text-xs hover:text-blue-500">People</a>
         <IoMdAddCircleOutline />
         <a href="/createPost" className="text-lg max-md:text-xs hover:text-blue-500">Crear Post</a>
         <IoMdChatbubbles />
@@ -64,6 +68,8 @@ const Header = () => {
         <a href="/profile" className="block px-4 py-2 hover:bg-gray-700 text-lg max-md:text-xs">Perfil</a>
         <IoMdPeople />
         <a href="/groups" className="block px-4 py-2 hover:bg-gray-700 text-lg max-md:text-xs">Grupos</a>
+        <IoPeople />
+        <a href="/people" className="block px-4 py-2 hover:bg-gray-700 text-lg max-md:text-xs">People</a>
         <IoMdAddCircleOutline />
         <a href="/createPost" className="block px-4 py-2 hover:bg-gray-700 text-lg max-md:text-xs">Crear Post</a>
         <IoMdChatbubbles />

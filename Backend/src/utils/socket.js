@@ -1,8 +1,6 @@
 import { Server } from 'socket.io';
 import jwt from 'jsonwebtoken';
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import { saveMessage } from '../controllers/messages.controller.js'; 
 
 const socketHandler = (server) => {
   const io = new Server(server, {
@@ -34,15 +32,13 @@ const socketHandler = (server) => {
       try {
         const { message } = data;
 
-        const savedMessage = await prisma.messages.create({
-          data: {
-            content: message,
-            userId: socket.userId
-          }
+        const savedMessage = await saveMessage({
+          content: message,
+          userId: socket.userId
         });
 
         const messagePayload = {
-          senderId: socket.userId,
+          senderId: savedMessage.userId,
           message: savedMessage.content,
           timestamp: savedMessage.createdAt
         };

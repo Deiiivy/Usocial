@@ -15,6 +15,7 @@ model Users {
   createdAt DateTime @default(now())
   posts     Posts[]
   messages  Messages[]
+  friends   Friends[]
 }
 
 model Posts {
@@ -33,4 +34,11 @@ model Messages {
   createdAt DateTime @default(now())
   userId    Int
   user      Users    @relation(fields: [userId], references: [id])
+}
+
+model Friends {
+  id Int @id @default(autoincrement())
+  name String
+  userId Int
+  user Users @relation(fields: [userId], references: [id])
 }
