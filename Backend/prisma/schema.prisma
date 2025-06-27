@@ -14,6 +14,7 @@ model Users {
   password  String
   createdAt DateTime @default(now())
   posts     Posts[]
+  messages  Messages[]
 }
 
 model Posts {
@@ -21,6 +22,14 @@ model Posts {
   title     String
   content   String
   image     String?
+  createdAt DateTime @default(now())
+  userId    Int
+  user      Users    @relation(fields: [userId], references: [id])
+}
+
+model Messages {
+  id        Int      @id @default(autoincrement())
+  content   String
   createdAt DateTime @default(now())
   userId    Int
   user      Users    @relation(fields: [userId], references: [id])
