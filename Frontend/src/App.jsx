@@ -1,13 +1,16 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { useState } from "react"
 import Home from './pages/Home'
-import Login from './pages/Login'
-import Register from "./pages/Register"
+import Login from "./auth/Login"
+import Register from "./auth/Register"
 import Main from "./pages/Main"
 import CreatePost from "./pages/CreatePost"
-import LogOut from "./pages/LogOut"
+import LogOut from "./auth/LogOut"
 import Profile from "./pages/Profile"
 import Messages from "./pages/Messages"
+import Groups from "./pages/Groups"
+import Setting from "./pages/Setting"
+import People from "./pages/People"
 
 function App() {
   return (
@@ -21,6 +24,9 @@ function App() {
         <Route path="/logout" element={<LogOut />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/messages" element={<Messages />} />
+        <Route path="/groups" element={<Groups />} />
+        <Route path="/settings" element={<Setting />} />
+        <Route path="/people" element={<People />} />
       </Routes>
     </BrowserRouter>
   )

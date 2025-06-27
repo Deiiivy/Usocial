@@ -63,10 +63,10 @@ const Messages = () => {
     };
 
     return (
-        <div className='flex flex-col items-center mt-28 h-screen w-screen'>
+        <div className='flex flex-col items-center mt-28 max-h-[600px] w-screen overflow-y-hidden '>
             <Header />
             <Aside />
-            <div className='flex flex-col w-full max-w-4xl mx-auto p-4'>
+            <div className='flex flex-col w-full max-w-4xl mx-auto p-4 overflow-y-hidden'>
                 <h1 className='text-xl font-bold mb-4'>Messages</h1>
 
                 {error && (
@@ -75,7 +75,7 @@ const Messages = () => {
                     </div>
                 )}
 
-                <div className='flex flex-col flex-grow overflow-y-auto mb-4 p-4 bg-gray-800 rounded-lg'>
+                <div className='flex flex-col flex-grow overflow-y-scroll mb-4 p-4 bg-gray-800 rounded-lg'>
                     {messages.map((message, index) => (
                         <div
                             key={index}

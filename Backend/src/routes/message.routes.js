@@ -1,5 +1,5 @@
 import express from 'express';
-import * as messageController from '../controllers/messges.controller.js';
+import * as messageController from '../controllers/messages.controller.js';
 import { verifyToken } from '../middlewares/JWT.js';
 const router = express.Router();
 
