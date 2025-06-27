@@ -13,8 +13,6 @@ const socketHandler = (server) => {
     }
   });
 
-  const users = new Map();
-
   io.use((socket, next) => {
     const token = socket.handshake.auth.token;
     if (!token) {
@@ -31,11 +29,10 @@ const socketHandler = (server) => {
 
   io.on('connection', (socket) => {
     console.log('Usuario conectado:', socket.userId);
-    users.set(socket.userId, socket);
 
     socket.on('send_message', async (data) => {
       try {
-        const { recipientId, message } = data;
+        const { message } = data;
 
         const savedMessage = await prisma.messages.create({
           data: {
@@ -50,14 +47,7 @@ const socketHandler = (server) => {
           timestamp: savedMessage.createdAt
         };
 
-        const recipientSocket = users.get(recipientId);
-
-        if (recipientSocket && recipientSocket.id !== socket.id) {
-          recipientSocket.emit('receive_message', messagePayload);
-          socket.emit('receive_message', messagePayload);
-        } else {
-          socket.emit('receive_message', messagePayload);
-        }
+        io.emit('receive_message', messagePayload);
 
       } catch (error) {
         console.error('Error al enviar mensaje:', error);
@@ -67,7 +57,6 @@ const socketHandler = (server) => {
 
     socket.on('disconnect', () => {
       console.log('Usuario desconectado:', socket.userId);
-      users.delete(socket.userId);
     });
   });
 

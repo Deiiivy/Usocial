@@ -41,14 +41,15 @@ const Messages = () => {
         });
 
         newSocket.on('receive_message', (data) => {
-            console.log('Mensaje recibido:', data); // Para debug
+            console.log('Mensaje recibido:', data);
             setMessages((prev) => [...prev, data]);
         });
 
         return () => {
             newSocket.disconnect();
+            newSocket.off('receive_message');
         };
-    }, []); // SIN DEPENDENCIAS para que se ejecute una sola vez
+    }, []); 
 
     const enviarMensaje = (recipientId) => {
         if (!socket || !currentMessage.trim()) return;
