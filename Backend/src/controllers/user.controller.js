@@ -25,6 +25,21 @@ export const createUser = async (req, res, next) => {
 };
 
 
+export const getCurrentUser = async (req, res, next) => {
+  console.log('req.userId en getCurrentUser:', req.userId); 
+  try {
+      const user = await userService.getUserById(req.userId);
+      if (!user) {
+          console.log('No se encontró el usuario con id:', req.userId);
+          return res.status(404).json({ message: 'User not found' });
+      }
+      res.json(user);
+  } catch (error) {
+      console.error('Error en getCurrentUser:', error);
+      next(error);
+  }
+};
+
 export const loginUSer = async(req, res, next) => {
   try {
     const { email, password } = req.body;

@@ -18,6 +18,7 @@ const Aside = () => {
         <div className="p-4">
           <h2 className="text-2xl font-bold mb-4">Menú</h2>
           <ul className="space-y-2">
+            <li><a href="/main" className="flex items-center gap-2 text-xl font-bold text-gray-300 hover:text-blue-500"><IoHomeOutline /> Inicio</a></li>
             <li><a href="/profile" className="flex items-center gap-2 text-xl font-bold text-gray-300 hover:text-blue-500"><FaRegUser /> Perfil</a></li>
             <li><a href="/groups" className="flex items-center gap-2 text-xl font-bold text-gray-300 hover:text-blue-500"><IoMdPeople /> Grupos</a></li>
             <li><a href="/messages" className="flex items-center gap-2 text-xl font-bold text-gray-300 hover:text-blue-500"><IoMdChatbubbles /> Mensajes</a></li>
@@ -29,6 +30,7 @@ const Aside = () => {
       </aside>
 
       <nav className="fixed bottom-0 left-0 right-0 bg-gradient-to-br from-black to-gray-800 text-white shadow-inner flex justify-around py-2 md:hidden">
+        <a href="/main" className="hover:text-blue-500"><IoHomeOutline size={24} /></a>
         <a href="/profile" className="hover:text-blue-500"><FaRegUser size={24} /></a>
         <a href="/groups" className="hover:text-blue-500"><IoMdPeople size={24} /></a>
         <a href="/messages" className="hover:text-blue-500"><IoMdChatbubbles size={24} /></a>
