@@ -7,6 +7,7 @@ const Register = () => {
     const titleRef = useRef(null);
     const subtitleRef = useRef(null);
     const logoRef = useRef(null);
+    const [image, setImage] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const navigate = useNavigate()
     
@@ -14,6 +15,10 @@ const Register = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+
+    const handleImageChange = (e) => {
+        setImage(e.target.files[0]);
+    };
     
     useEffect(() => {
         gsap.fromTo(logoRef.current, 
@@ -42,17 +47,16 @@ const Register = () => {
         e.preventDefault();
         
         try {
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('email', email);
+            formData.append('password', password);
+            formData.append('confirmPassword', confirmPassword);
+            if (image) formData.append('image', image);
+
             const response = await fetch('http://localhost:3000/users/RegisterUser', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    name,
-                    email,
-                    password,
-                    confirmPassword
-                }),
+                body: formData,
             });
 
             if (!response.ok) {
@@ -67,7 +71,7 @@ const Register = () => {
         setEmail('');
         setPassword('');
         setConfirmPassword('');
-  
+        setImage('');
         }catch (error) {
             console.error("Error al registrar:", error);
         }
@@ -75,7 +79,7 @@ const Register = () => {
         setEmail('');
         setPassword('');
         setConfirmPassword('');
-
+        setImage('');
     };
 
   return (
@@ -121,6 +125,17 @@ const Register = () => {
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required
                 />
+
+                <label className="block text-gray-700 text-sm font-bold mt-4 mb-2">
+                    Imagen (opcional)
+                </label>
+                <input
+                    type="file"
+                    onChange={handleImageChange}
+                    placeholder="Ingresa tu imagen"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+
                 <label className="block text-gray-700 text-sm font-bold mt-4 mb-2">
                     Contraseña
                 </label>
