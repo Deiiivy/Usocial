@@ -34,6 +34,7 @@ const Main = () => {
         }
 
         const data = await response.json();
+        console.log(data);
         if (Array.isArray(data) && data.length > 0) {
           setPosts(data);
           setStatusMessage('');
