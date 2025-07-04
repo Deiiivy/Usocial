@@ -19,6 +19,7 @@ const People = () => {
         }
       })
       const data = await response.json()
+      console.log(data)
       setPeople(data)
     } catch (error) {
       console.error('Error fetching people:', error)
@@ -40,7 +41,14 @@ const People = () => {
         <h1>People</h1>
         <ul>
           {people.map((person) => (
-            <li key={person.id}>{person.name}</li>
+            <li key={person.id} className="flex items-center gap-3">
+              <img 
+                src={person.image ? `http://localhost:3000/${person.image}` : '/avatar.webp'} 
+                alt={person.name} 
+                className="w-10 h-10 rounded-full"
+              />
+              <span>{person.name}</span>
+            </li>
           ))}
         </ul>
       </div>

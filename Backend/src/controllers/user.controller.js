@@ -5,8 +5,9 @@ const secretKey = process.env.JWT_SECRET_KEY;
 
 export const getUsers = async (req, res, next) => {
   try {
-    const users = await userService.getAllUsers();
-    res.json(users);
+    const getUsers = await userService.getAllUsers();
+    console.log(getUsers);
+    res.json(getUsers);
   } catch (error) {
     next(error);
   }
@@ -17,9 +18,11 @@ export const createUser = async (req, res, next) => {
     const { name, email, password } = req.body;
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
-    const newUser = await userService.createUser({ name, email, password:hashedPassword });
+    const image = req.file ? `uploads/${req.file.filename}` : null;
+    const newUser = await userService.createUser({ name, email, password:hashedPassword, image });
     res.status(201).json(newUser);
   } catch (error) {
+    console.error('Error al crear el usuario:', error);
     next(error);
   }
 };
