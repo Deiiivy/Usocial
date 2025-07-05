@@ -38,16 +38,21 @@ const People = () => {
       <Header />
       <Aside />
       <div className="flex flex-col items-center mt-28 h-screen">
-        <h1>People</h1>
-        <ul>
+        <h1 className='text-xl font-bold mb-8 '>Personas que quizas conozcas</h1>
+        <ul className='flex flex-col gap-5'>
           {people.map((person) => (
-            <li key={person.id} className="flex items-center gap-3">
+            <li key={person.id} className="flex items-center gap-24 justify-between">
+              <div>
               <img 
                 src={person.image ? `http://localhost:3000/${person.image}` : '/avatar.webp'} 
                 alt={person.name} 
                 className="w-10 h-10 rounded-full"
               />
               <span>{person.name}</span>
+              </div>
+              <div>
+                <button className='bg-blue-500 text-white pt-2 pb-2 pr-6 pl-6 rounded-xl font-bold hover:bg-blue-600 cursor-pointer'>Agregar</button>
+              </div>
             </li>
           ))}
         </ul>
