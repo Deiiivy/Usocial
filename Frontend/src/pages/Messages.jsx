@@ -122,6 +122,6 @@ const Messages = () => {
             </div>
           )
           
-};
+w};
 
 export default Messages;
