@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import gsap from 'gsap'
-import logo from '../assets/Usocial_logo.png' 
+import logo from '../assets/Usocial_logo.png'
 
 const Home = () => {
   const titleRef = useRef(null);
