@@ -66,7 +66,7 @@ const Messages = () => {
               <Header />
               <Aside />
               <div className='flex flex-col w-full max-w-4xl mx-auto p-4 overflow-y-hidden ml-0 md:ml-64'>
-                <h1 className='text-xl font-bold mb-4'>Messages</h1>
+                <h1 className='text-xl font-bold mb-4'>Mensajes</h1>
                 {error && (
                   <div className='bg-red-600 text-white p-2 rounded mb-4'>
                     {error}
@@ -115,7 +115,7 @@ const Messages = () => {
                     onClick={() => enviarMensaje()}
                     disabled={!currentMessage.trim()}
                   >
-                    Send
+                    Enviar
                   </button>
                 </div>
               </div>
