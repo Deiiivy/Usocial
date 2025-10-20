@@ -23,7 +23,7 @@ cd Usocial
 
 
 --------------------------------------------
-⬇️ 2. EJECUTAR TODO CON DOCKER
+ 2. EJECUTAR TODO CON DOCKER
 --------------------------------------------
 
 estando en la raiz (en la carpeta Usocial correr el comando)
