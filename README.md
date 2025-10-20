@@ -1,9 +1,9 @@
-🧑‍💻 USOCIAL — RED SOCIAL UNIVERSITARIA
+USOCIAL — RED SOCIAL UNIVERSITARIA
 
 Guía paso a paso para clonar, configurar y ejecutar el proyecto desde cero usando Docker.
 
 --------------------------------------------
-🚨 REQUISITOS (Windows)
+REQUISITOS (Windows)
 --------------------------------------------
 
 1. Tener instalado [Git](https://git-scm.com/)
@@ -11,7 +11,7 @@ Guía paso a paso para clonar, configurar y ejecutar el proyecto desde cero usan
 3. Tener Node.js y npm 
 
 --------------------------------------------
-⬇️ 1. CLONAR EL PROYECTO
+1. CLONAR EL PROYECTO
 --------------------------------------------
 
 Abre PowerShell o CMD y ejecuta:
