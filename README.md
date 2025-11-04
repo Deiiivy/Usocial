@@ -45,6 +45,11 @@ Phone
 
 ![imagen](https://github.com/user-attachments/assets/194689ae-c6bd-4074-a803-7d1087d9def2)
 
+Diagrama entidad relaciòn actualizado
+
+<img width="833" height="251" alt="image" src="https://github.com/user-attachments/assets/a4fab909-6960-4bbe-a8a2-fdc7e4eaf032" />
+
+
 
 
 
