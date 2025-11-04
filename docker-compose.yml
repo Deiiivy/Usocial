@@ -7,7 +7,7 @@ services:
       POSTGRES_PASSWORD: usocialpass
       POSTGRES_DB: usocialdb
     ports:
-      - "5433:5433"
+      - "5433:5432" 
     volumes:
       - pgdata:/var/lib/postgresql/data
 
@@ -43,8 +43,10 @@ services:
       - "5173:5173"
     volumes:
       - ./Frontend:/app
+      - /app/node_modules 
     working_dir: /app
     command: npm run dev
 
 volumes:
   pgdata:
+
