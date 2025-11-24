@@ -6,6 +6,7 @@ import postRoutes from './routes/post.routes.js';
 import messageRoutes from './routes/message.routes.js'
 import socketHandler from './utils/socket.js';
 import path from 'path';
+import userService from './services/user.service.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -23,6 +24,8 @@ app.get('/', (_req, res) => {
 });
 
 app.use(errorHandler);
+
+userService.createAdminIfNotExist();
 
 const server = app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
