@@ -39,6 +39,7 @@ const socketHandler = (server) => {
 
         const messagePayload = {
           senderId: savedMessage.userId,
+          senderName: savedMessage.username,
           message: savedMessage.content,
           timestamp: savedMessage.createdAt
         };

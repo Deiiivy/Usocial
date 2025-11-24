@@ -90,7 +90,10 @@ const Messages = () => {
                             : 'bg-gray-700 text-white'
                         }`}
                       >
-                        <span className='font-bold'>{message.senderId}:</span>
+                        <span className='font-bold'>
+                               {message.senderName || `User ${message.senderId}`}:
+                          </span>
+
                         <span className='ml-2'>{message.message}</span>
                         <br />
                         <span className='text-xs mt-1 text-gray-400'>
