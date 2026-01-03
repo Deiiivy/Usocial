@@ -32,6 +32,13 @@ estando en la raiz (en la carpeta Usocial correr el comando)
 docker-compose up --build
 ```
 
+------------------------------------------
+3. EJECUTAR CONTENEDOR DE BASE DE DATOS
+------------------------------------------
+
+<img width="1293" height="572" alt="imagen" src="https://github.com/user-attachments/assets/610f1538-74db-43c6-b75e-60b31b7373c9" />
+
+
 cuando este listo se podra ver el Frontend en: http://localhost:5173/
 y el backend estara corriendo en el puerto: http://localhost:3000/
 
