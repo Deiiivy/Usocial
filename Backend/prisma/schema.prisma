@@ -16,8 +16,10 @@ model Users {
   createdAt DateTime @default(now())
   role      String   @default("student")
   posts     Posts[]
-  messages  Messages[]
-  friends   Friends[]
+  sentMessages     Messages[] @relation("MessageSender")
+  receivedMessages Messages[] @relation("MessageReceiver")
+  friendships       Friends[] @relation("FriendRequester")
+  friendOf          Friends[] @relation("FriendRequested")
 }
 
 
@@ -32,16 +34,22 @@ model Posts {
 }
 
 model Messages {
-  id        Int      @id @default(autoincrement())
-  content   String
-  createdAt DateTime @default(now())
-  userId    Int
-  user      Users    @relation(fields: [userId], references: [id])
+  id         Int      @id @default(autoincrement())
+  content    String
+  createdAt  DateTime @default(now())
+  userId     Int
+  receiverId Int?
+  user       Users    @relation(fields: [userId], references: [id], name: "MessageSender")
+  receiver   Users?   @relation(fields: [receiverId], references: [id], name: "MessageReceiver") // <-- poner ?
 }
 
+
 model Friends {
-  id Int @id @default(autoincrement())
-  name String
-  userId Int
-  user Users @relation(fields: [userId], references: [id])
+  id       Int     @id @default(autoincrement())
+  userId   Int
+  friendId Int
+  status   String  @default("pending") // pending, accepted, blocked
+  user     Users   @relation(fields: [userId], references: [id], name: "FriendRequester")
+  friend   Users   @relation(fields: [friendId], references: [id], name: "FriendRequested")
+  @@unique([userId, friendId])
 }

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { useNavigate } from 'react-router-dom'
-import logo from '../assets/Usocial_logo.png'
+import logo from '/Usocial_logo1.png'
 
 const Register = () => {
     const titleRef = useRef(null);

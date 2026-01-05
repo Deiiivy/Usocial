@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import logo from '../assets/Usocial_logo.png';
+import logo from '/Usocial_logo1.png';
 import { FaRegUser } from "react-icons/fa";
 import { IoHomeOutline } from "react-icons/io5";
 import { IoMdPeople } from "react-icons/io";

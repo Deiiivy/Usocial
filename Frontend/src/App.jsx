@@ -8,6 +8,7 @@ import CreatePost from "./pages/CreatePost"
 import LogOut from "./auth/LogOut"
 import Profile from "./pages/Profile"
 import Messages from "./pages/Messages"
+import PrivateChat from "./pages/PrivateChat"
 import Groups from "./pages/Groups"
 import Setting from "./pages/Setting"
 import People from "./pages/People"
@@ -25,6 +26,7 @@ function App() {
         <Route path="/logout" element={<LogOut />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/messages" element={<Messages />} />
+        <Route path="/messages/:friendId" element={<PrivateChat />} />
         <Route path="/groups" element={<Groups />} />
         <Route path="/settings" element={<Setting />} />
         <Route path="/people" element={<People />} />
