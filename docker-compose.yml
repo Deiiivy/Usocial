@@ -30,7 +30,6 @@ services:
           echo 'Esperando a que la DB esté lista...';
           sleep 2;
         done &&
-        npx prisma migrate deploy &&
         npx prisma generate &&
         npm run dev
       "
