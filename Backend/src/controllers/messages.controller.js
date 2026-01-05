@@ -1,12 +1,17 @@
 import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
-// Función común para crear un mensaje (usada por API y socket)
+
 export const saveMessage = async ({ content, userId }) => {
     const message = await prisma.messages.create({
         data: {
             content,
             userId
+        },
+        include: {
+            user: {
+                select: { name: true }
+            }
         }
     });
 
@@ -14,9 +19,11 @@ export const saveMessage = async ({ content, userId }) => {
         id: message.id,
         content: message.content,
         createdAt: message.createdAt,
-        userId: message.userId
+        userId: message.userId,
+        username: message.user.name
     };
 };
+
 
 export const getAllMessages = async (req, res, next) => {
     try {

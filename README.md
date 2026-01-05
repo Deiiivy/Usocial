@@ -1,9 +1,9 @@
-🧑‍💻 USOCIAL — RED SOCIAL UNIVERSITARIA
+USOCIAL — RED SOCIAL UNIVERSITARIA
 
 Guía paso a paso para clonar, configurar y ejecutar el proyecto desde cero usando Docker.
 
 --------------------------------------------
-🚨 REQUISITOS (Windows)
+REQUISITOS (Windows)
 --------------------------------------------
 
 1. Tener instalado [Git](https://git-scm.com/)
@@ -11,7 +11,7 @@ Guía paso a paso para clonar, configurar y ejecutar el proyecto desde cero usan
 3. Tener Node.js y npm 
 
 --------------------------------------------
-⬇️ 1. CLONAR EL PROYECTO
+1. CLONAR EL PROYECTO
 --------------------------------------------
 
 Abre PowerShell o CMD y ejecuta:
@@ -23,7 +23,7 @@ cd Usocial
 
 
 --------------------------------------------
-⬇️ 2. EJECUTAR TODO CON DOCKER
+ 2. EJECUTAR TODO CON DOCKER
 --------------------------------------------
 
 estando en la raiz (en la carpeta Usocial correr el comando)
@@ -31,6 +31,13 @@ estando en la raiz (en la carpeta Usocial correr el comando)
 ```bash
 docker-compose up --build
 ```
+
+------------------------------------------
+3. EJECUTAR CONTENEDOR DE BASE DE DATOS
+------------------------------------------
+
+<img width="1293" height="572" alt="imagen" src="https://github.com/user-attachments/assets/610f1538-74db-43c6-b75e-60b31b7373c9" />
+
 
 cuando este listo se podra ver el Frontend en: http://localhost:5173/
 y el backend estara corriendo en el puerto: http://localhost:3000/
@@ -44,6 +51,11 @@ Interfaz Main Desktop
 Phone
 
 ![imagen](https://github.com/user-attachments/assets/194689ae-c6bd-4074-a803-7d1087d9def2)
+
+Diagrama entidad relaciòn actualizado
+
+<img width="833" height="251" alt="image" src="https://github.com/user-attachments/assets/a4fab909-6960-4bbe-a8a2-fdc7e4eaf032" />
+
 
 
 

@@ -11,6 +11,7 @@ import Messages from "./pages/Messages"
 import Groups from "./pages/Groups"
 import Setting from "./pages/Setting"
 import People from "./pages/People"
+import AdminUsers from "./pages/AdminUsers.jsx";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path="/groups" element={<Groups />} />
         <Route path="/settings" element={<Setting />} />
         <Route path="/people" element={<People />} />
+        <Route path="/admin/users" element={<AdminUsers />} />
       </Routes>
     </BrowserRouter>
   )
