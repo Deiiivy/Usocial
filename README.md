@@ -27,9 +27,9 @@ cd Usocial
 --------------------------------------------
 
 estando en la raiz (en la carpeta Usocial correr el comando)
-
+asegurate de tener el proceso de docker corriendo
 ```bash
-docker-compose up --build
+docker compose up --build
 ```
 
 ------------------------------------------
@@ -52,9 +52,14 @@ Phone
 
 ![imagen](https://github.com/user-attachments/assets/194689ae-c6bd-4074-a803-7d1087d9def2)
 
-Diagrama entidad relaciòn actualizado
 
-<img width="833" height="251" alt="image" src="https://github.com/user-attachments/assets/a4fab909-6960-4bbe-a8a2-fdc7e4eaf032" />
+Interfaz de personas
+
+<img width="1907" height="935" alt="imagen" src="https://github.com/user-attachments/assets/ac921726-1b6b-4e25-8b4c-f8c0b1cf7a5b" />
+
+
+
+
 
 
 
