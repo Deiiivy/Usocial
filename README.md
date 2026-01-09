@@ -57,6 +57,19 @@ Interfaz de personas
 
 <img width="1907" height="935" alt="imagen" src="https://github.com/user-attachments/assets/ac921726-1b6b-4e25-8b4c-f8c0b1cf7a5b" />
 
+----
+<img width="1919" height="890" alt="imagen" src="https://github.com/user-attachments/assets/c647bade-efc1-4ee6-ab23-996bc6e38d4e" />
+
+Interfaz de mensajeria
+<img width="1919" height="918" alt="imagen" src="https://github.com/user-attachments/assets/af802460-abbd-454f-9875-ec9baa3d3d81" />
+
+---
+
+<img width="1919" height="985" alt="imagen" src="https://github.com/user-attachments/assets/6253dcdb-254d-40a4-8fb7-8970d202c410" />
+
+
+
+
 
 
 
