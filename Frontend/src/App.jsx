@@ -13,7 +13,6 @@ import Groups from "./pages/Groups"
 import Setting from "./pages/Setting"
 import People from "./pages/People"
 import AdminUsers from "./pages/AdminUsers.jsx";
-
 function App() {
   return (
     <BrowserRouter>

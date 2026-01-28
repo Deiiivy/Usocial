@@ -18,7 +18,7 @@ const PrivateChat = () => {
     const navigate = useNavigate();
     const token = currentUser?.token;
 
-    // Si el usuario no tiene nombre, intentar obtenerlo
+    
     useEffect(() => {
         const fetchUserData = async () => {
             if (token && currentUser?.id && !currentUser?.name) {
@@ -49,7 +49,7 @@ const PrivateChat = () => {
             return;
         }
 
-        // Obtener mensajes con el amigo
+        
         const fetchMessages = async () => {
             try {
                 const response = await fetch(`http://localhost:3000/messages/friend/${friendId}`, {
@@ -71,7 +71,7 @@ const PrivateChat = () => {
 
         fetchMessages();
 
-        // Conectar socket
+       
         const newSocket = io('http://localhost:3000', {
             auth: { token },
             transports: ['websocket'],
@@ -99,7 +99,7 @@ const PrivateChat = () => {
 
         newSocket.on('receive_message', (data) => {
             try {
-                // Solo agregar mensajes que NO sean del usuario actual (evitar duplicados)
+               
                 if (data && data.senderId !== currentUser?.id && (data.senderId === parseInt(friendId) || data.receiverId === parseInt(friendId))) {
                     setMessages((prev) => [...(prev || []), data]);
                 }
@@ -129,9 +129,9 @@ const PrivateChat = () => {
         }
 
         try {
-            // Crear el mensaje local para mostrarlo inmediatamente
+        
             const localMessage = {
-                id: Date.now(), // ID temporal
+                id: Date.now(),
                 senderId: currentUser.id,
                 senderName: currentUser.name || 'Tú',
                 receiverId: parseInt(friendId),
@@ -139,10 +139,10 @@ const PrivateChat = () => {
                 timestamp: new Date().toISOString()
             };
 
-            // Agregar el mensaje al estado local inmediatamente
+            
             setMessages(prev => [...(prev || []), localMessage]);
 
-            // Enviar por socket
+
             socket.emit('send_message', {
                 receiverId: parseInt(friendId),
                 message: currentMessage.trim()
@@ -163,7 +163,7 @@ const PrivateChat = () => {
             <div className='flex flex-col w-full max-w-4xl mx-auto p-4 overflow-y-hidden ml-0 md:ml-64'>
                 <h1 className='text-xl font-bold mb-4'>Chat Privado</h1>
                 
-                {/* Indicador de conexión */}
+               
                 <div className='flex items-center mb-4'>
                     <div className={`w-3 h-3 rounded-full mr-2 ${isConnected ? 'bg-green-500' : 'bg-red-500'}`}></div>
                     <span className='text-sm text-gray-400'>
@@ -184,16 +184,15 @@ const PrivateChat = () => {
 
                 <div className='flex flex-col flex-grow overflow-y-scroll mb-4 p-4 bg-gray-800 rounded-lg'>
                     {messages && messages.length > 0 ? messages.map((message, index) => {
-                        // Determinar si es mensaje propio
+                        
                         const isOwnMessage = message?.userId === currentUser?.id || message?.senderId === currentUser?.id;
                         
-                        // Obtener el nombre del usuario
+                        
                         const displayName = message?.user?.name || message?.senderName || 'Usuario';
                         
-                        // Obtener el contenido del mensaje
+                       
                         const messageContent = message?.content || message?.message || '';
                         
-                        // Obtener el timestamp
                         const timestamp = message?.createdAt || message?.timestamp;
                         
                         return (
